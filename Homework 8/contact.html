@@ -10,41 +10,31 @@
     <script src="bootstrap-5.2.2-dist/js/jquery-3.6.1.min.js"></script>
     <script src="bootstrap-5.2.2-dist/js/bootstrap.min.js"></script>
     <script>
-        function firstName() {
+        function validation() {
             var fname = document.getElementById("fName").value;
+            var lname = document.getElementById("lName").value;
             var email = document.getElementById("email").value;
             if (fname == "") {
+                document.getElementById("fName").style.backgroundColor = "red";
                 document.getElementById("fName").focus();
-                document.getElementById("fName").innerHTML = "* Required";
-                return false;
+                window.alert("First name is required")
             }
-        }
-
-        function lastName() {
-            var lname = document.getElementById("lName").value;
-            if (lname == "") {
+            if (fname != "" && lname == "") {
+                document.getElementById("lName").style.backgroundColor = "red";
                 document.getElementById("lName").focus();
-                return false;
+                window.alert("Last Name is Required")
             }
-        }
-
-        function emailCheck() {
-            var email = document.getElementById("email").value;
-            if (email == "") {
+            if (fname != "" && lname != "" && email == "") {
+                document.getElementById("email").style.backgroundColor = "red";
                 document.getElementById("email").focus();
-                return false;
-            }
-        }
-
-        function checkTermsYes() {
-            if(document.getElementById("taYes").checked == true) {
-                document.getElementById("taYes").innerHTML = "document.getElementById('taYes').value" + "Thank You";
+                window.alert("email required plz")
             }
         }
 
         function checkTermsNo() {
             if(document.getElementById("taYes").checked == false) {
                 alert("Please Accept T&A");
+                document.getElementById("taYes").focus();
             }
         }
     </script>
@@ -59,15 +49,15 @@
         <div class="container-1">
             <h4>Fill in the form below with your contact information</h4>
             <hr>
-            <form name="contactForm" type="Post">
-                First Name: <input type="text" id="fName"><br>
-                Last Name: <input type="text" id="lName"><br>
-                Email: <input type="text" id="email"><br>
-                Do you accept the Terms and Agreement?<br>
-                <input type="radio" id="taYes" value="Yes" onClick="checkTermsYes();"><label>Yes</label>
-                <br>
-                <input type="submit" value="Submit" onclick="firstName();lastName();emailCheck();checkTermsNo();">
-            </form>
+            
+            First Name: <input type="text" id="fName"><br>
+            Last Name: <input type="text" id="lName"><br>
+            Email: <input type="text" id="email"><br>
+            Do you accept the Terms and Agreement?<br>
+            <input type="radio" id="taYes" value="Yes"><label>Yes</label>
+            <br>
+            <input type="submit" value="Submit" onclick="validation();checkTermsNo();">
+
             <button><a href="home.html">Back to Home</a></button>
         </div>
     </main>
