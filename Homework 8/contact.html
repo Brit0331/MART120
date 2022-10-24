@@ -19,22 +19,28 @@
                 document.getElementById("fName").focus();
                 window.alert("First name is required")
             }
-            if (fname != "" && lname == "") {
+            if (lname == "") {
                 document.getElementById("lName").style.backgroundColor = "red";
                 document.getElementById("lName").focus();
-                window.alert("Last Name is Required")
+                window.alert("Last name is required")
             }
-            if (fname != "" && lname != "" && email == "") {
+            if (email == "") {
                 document.getElementById("email").style.backgroundColor = "red";
                 document.getElementById("email").focus();
-                window.alert("email required plz")
+                window.alert("Email name is required")
+            }
+            if (fname == "" && lname == "" && email == "") {
+                document.getElementById("email").style.backgroundColor = "red";
+                document.getElementById("fName").style.backgroundColor = "red";
+                document.getElementById("lName").style.backgroundColor = "red";
+                document.getElementById("fName").focus();
+                window.alert("Please Enter your information")
             }
         }
 
         function checkTermsNo() {
             if(document.getElementById("taYes").checked == false) {
                 alert("Please Accept T&A");
-                document.getElementById("taYes").focus();
             }
         }
     </script>
@@ -50,9 +56,9 @@
             <h4>Fill in the form below with your contact information</h4>
             <hr>
             
-            First Name: <input type="text" id="fName"><br>
-            Last Name: <input type="text" id="lName"><br>
-            Email: <input type="text" id="email"><br>
+            First Name: <input type="text" id="fName" required><br>
+            Last Name: <input type="text" id="lName" required><br>
+            Email: <input type="text" id="email" required><br>
             Do you accept the Terms and Agreement?<br>
             <input type="radio" id="taYes" value="Yes"><label>Yes</label>
             <br>
