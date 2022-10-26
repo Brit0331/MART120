@@ -41,7 +41,7 @@ function draw() {
 
     //Mustache
     strokeWeight(6);
-        point(425, 280);
+    point(425, 280);
     point(365, 299);
     point(365, 294);
     point(365, 289);
@@ -64,9 +64,6 @@ function draw() {
     point(435, 284);
     point(435, 299);
     point(435, 294);
-
-
-
 
     //Mouth
     c = color("white");
