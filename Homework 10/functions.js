@@ -1,34 +1,77 @@
-var text = 46;
-var move;
+
+
+
+var size = 46;
+var count = 0;
+var sizeDirection = 1;
+
+var headX = 400;
+var headY = 235;
+
+
+var armOneY = 200;
+var armTwoY = 250;
+var handDirection = 1;
+
+var eyeX = 370;
+var eyeY = 230;
+var eyeDirection = 1;
+
+var mouthX = 400;
+var mouthY = 295;
+var mouthDirection = 1;
+var mouthYDirection =1;
+
 
 function setup() {
     createCanvas(800,800);
+    movement1 = floor(random(1, 10));
+    movement2 = floor(random(1, 20));
+    movement3 = floor(random(1, 5));
+    movement4 = floor(random(1, 3));
+    movement5 = floor(random(1, 3));
+    movement6 = floor(random(1, 50));
+    movement7 = floor(random(1, 50));
 }
 
 function draw() {
     background(140)
 
     //Title/Text
-    textSize(text);
-    text("AHHH!", 330, 60);
+    textSize(size);
     text("Brit Ramsey", 290, 790);
+    size += movement1;
+    count++;
+    if(count > 5) {
+        movement1 *= -1;
+        count = 0;
+    }
+    text("AHHH!", 330, 60);
 
     //Head
     let c = color(255, 235, 205);
     fill(c);
     noStroke();
-    circle(400, 250, 160);
+    circle(headX, headY, 160);
+    headX+=movement2;
+    if(headX >= 425 || headX <= 375) {
+        movement2 *= -1;
+    }
 
     //Eyes
     c = color("white");
     fill(c);
     stroke(2);
     strokeWeight(1);
-    ellipse(370, 230, 40, 25);
+    ellipse(eyeX, 230, 40, 25);
+    eyeX += movement3;
+    if (eyeX >= 395 || eyeX <= 355) {
+        movement3 *= -1;
+    }
     ellipse(430, 230, 40, 25);
     c = color("black");
     fill(c);
-    circle(370, 230, 10);
+    circle(eyeX, 230, 10);
     circle(430, 230, 10);
 
     //Eyebrows
@@ -72,7 +115,13 @@ function draw() {
     c = color("white");
     fill(c);
     strokeWeight(2);
-    ellipse(400, 295, 60, 30);
+    ellipse(mouthX, mouthY, 60, 30);
+    mouthX += movement4;
+    mouthY += movement5;
+    if (mouthX >= 425 || mouthX <= 400 && mouthY >= 315 || mouthY <= 295) {
+        movement4 *= -1;
+        movement5 *= -1;
+    }
 
     //Body
     c = color(128, 0, 0);
@@ -81,8 +130,16 @@ function draw() {
 
     //Arms
     strokeWeight(10);
-    line(315, 400, 250, 200);
-    line(490, 400, 600, 250);
+    line(315, 400, 250, armOneY);
+    line(490, 400, 600, armTwoY);
+    armOneY += movement6;
+    if (armOneY >= 250 || armOneY <= 150) {
+        movement6 *= -1;
+    }
+    armTwoY += movement7;
+    if (armTwoY >= 300 || armTwoY <= 200) {
+        movement7 *= -1;
+    }
 
     //Legs
     noStroke();
